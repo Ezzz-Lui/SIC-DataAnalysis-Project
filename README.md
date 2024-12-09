@@ -25,7 +25,7 @@
    python -m venv env
    ```
 
-4. Activa el entorno virtual:
+4. Activa el entorno virtual (si aun no lo has creado xd):
      ```bash
      .\env\Scripts\activate
      ```
