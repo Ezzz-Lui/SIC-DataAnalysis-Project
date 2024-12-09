@@ -6,3 +6,45 @@
  - 
  - Luis Gerardo Ramos Martinez
  - Henry Levi Melgares Valdez
+
+
+## Instalación
+
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/Ezzz-Lui/SIC-DataAnalysis-Project.git
+   ```
+
+2. Navega a la carpeta del proyecto:
+   ```bash
+   cd SIC-DataAnalysis-Project
+   ```
+
+3. Crea un entorno virtual :
+   ```bash
+   python -m venv env
+   ```
+
+4. Activa el entorno virtual:
+     ```bash
+     .\env\Scripts\activate
+     ```
+
+
+5. Instala las dependencias:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+6. Realiza las migraciones de la base de datos :
+   ```bash
+   python manage.py migrate
+   ```
+
+
+7. Ejecuta el servidor:
+   ```bash
+   python manage.py runserver
+   ```
+
+8. Accede al proyecto en tu navegador: `http://127.0.0.1:8000/`
