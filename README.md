@@ -4,6 +4,5 @@
 ## Integrantes
  - 
  - 
- -
- -
- -Henry Levi Melgares Valdez
+ - Luis Gerardo Ramos Martinez
+ - Henry Levi Melgares Valdez
