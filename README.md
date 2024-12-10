@@ -2,13 +2,8 @@
 #### Samsumg Innovation Campus - 2024
 
 ## Integrantes
-<<<<<<< HEAD
- - 
  - Brisa Zahory Alvarenga Castillo
-=======
  - WAlter Antonio Cortez Melendez 
- - 
->>>>>>> 1e389f5ac82f9879b425e319e4b13dfc8516ef82
  - Luis Gerardo Ramos Martinez
  - Henry Levi Melgares Valdez
 
