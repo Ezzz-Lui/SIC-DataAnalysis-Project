@@ -2,7 +2,7 @@
 #### Samsumg Innovation Campus - 2024
 
 ## Integrantes
- - 
+ - WAlter Antonio Cortez Melendez 
  - 
  - Luis Gerardo Ramos Martinez
  - Henry Levi Melgares Valdez
