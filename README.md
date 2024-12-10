@@ -3,7 +3,7 @@
 
 ## Integrantes
  - 
- - 
+ - Brisa Zahory Alvarenga Castillo
  - Luis Gerardo Ramos Martinez
  - Henry Levi Melgares Valdez
 
