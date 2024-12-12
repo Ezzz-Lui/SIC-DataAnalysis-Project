@@ -47,19 +47,4 @@
    python manage.py runserver
    ```
 
-8. Accede al proyecto en tu navegador: `http://127.0.0.1:8000/`
->>>>>>> a1f268648fe6cbbecd446ba52afe3508d6d8025c
-
-
-
-
-
-
-
-
-
-
-
-
-
-CLI - Command Line Interface
+8. Accede al proyecto en tu navegador: `http://127.0.0.1:8000/
