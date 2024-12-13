@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClimateCode</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to ClimateCode </h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'Cargar_Datos' %}">Cargar Datos</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Analyze CO2 Data</h2>
+        <p>Use this platform to upload and analyze CO2 data.</p>
+    </main>
+    <footer>
+        <p>&copy; 2023 ClimateCode. All rights reserved.</p>
+    </footer>
+</body>
+</html>
