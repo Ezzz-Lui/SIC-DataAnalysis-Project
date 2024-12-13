@@ -28,7 +28,6 @@
 4. Activa el entorno virtual (si aun no lo has creado xd):
      ```bash
      .\env\Scripts\activate
-     ```
 
 
 5. Instala las dependencias:
@@ -47,4 +46,17 @@
    python manage.py runserver
    ```
 
-8. Accede al proyecto en tu navegador: `http://127.0.0.1:8000/
+8. Accede al proyecto en tu navegador: `http://127.0.0.1:8000/`
+
+
+
+
+
+
+
+
+
+
+
+
+
