@@ -6,23 +6,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClimateCode</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}">
 </head>
-<body>
-    <header>
-        <h1>Welcome to ClimateCode </h1>
+<body class="relative">
+    <div class="absolute inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#0d9488_100%)]"></div>
+    <header class="header py-6 bg-teal-900 text-white shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">Climate<span class="text-teal-400">Code</span></h1>
+            <nav>
+                <ul class="flex space-x-6 mt-4">
+                    <li><a href="{% url 'Cargar_Datos' %}" class="text-white hover:text-teal-300 transition">Cargar Datos</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <nav>
-        <ul>
-            <li><a href="{% url 'Cargar_Datos' %}">Cargar Datos</a></li>
-        </ul>
-    </nav>
-    <main>
-        <h2>Analyze CO2 Data</h2>
-        <p>Use this platform to upload and analyze CO2 data.</p>
+
+    <main class="main py-12">
+        <section class="hero text-center py-16 bg-teal-50 rounded-md shadow-lg mx-4 lg:mx-auto lg:w-3/4">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-extrabold text-teal-900">Analyze CO2 Data</h2>
+                <p class="text-lg text-teal-700 mt-4">Use this platform to upload and analyze CO2 data with ease.</p>
+                <a href="{% url 'Cargar_Datos' %}" class="mt-6 inline-block bg-teal-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-teal-800 transition">Get Started</a>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2023 ClimateCode. All rights reserved.</p>
+
+    <footer class="footer bg-teal-900 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 ClimateCode. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
