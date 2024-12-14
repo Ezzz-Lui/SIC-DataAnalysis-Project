@@ -19,7 +19,7 @@
             <!-- Card 1: Formulario de Selección -->
             <div class="bg-white p-6 rounded-lg shadow-md col-span-1 lg:col-span-1">
                 <h2 class="text-lg font-semibold mb-4">Seleccionar País y Año</h2>
-                <form method="POST" action="{% url 'index' %}">
+                <form method="POST" action="{% url 'procesar_datos' %}">
                     {% csrf_token %}
                     <div class="mb-4">
                         <label for="pais" class="block text-sm font-bold text-gray-700 mb-2">Selecciona un País</label>
@@ -50,13 +50,14 @@
                     </div>
                     <button type="submit" class="w-full font-semibold bg-secondary text-black py-2 mt-2 rounded-lg hover:bg-teal-950 hover:text-white transition duration-300">Ver Datos</button>
                 </form>
+                
             </div>
 
             <div class="bg-white p-6 rounded-lg shadow-md col-span-1 lg:col-span-2">
                 <h2 class="text-lg font-semibold mb-4">Gráfico de CO2 Total</h2>
                 <div class="h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <!-- Placeholder for graph -->
-                    <p>Gráfico de CO2 Total</p>
+                    <!-- Mostrar el gráfico generado -->
+                    <img src="data:image/png;base64,{{ image_data }}" alt="Gráfico de CO2 Total">
                 </div>
             </div>
 
@@ -91,4 +92,4 @@
         </div>
     </div>
 </body>
-</html>
+</html> 
