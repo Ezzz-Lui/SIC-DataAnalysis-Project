@@ -1,4 +1,4 @@
-<!-- filepath: /C:/Users/ProBook/Desktop/SIC/SIC-DataAnalysis-Project/ClimateCode/co2_app/templates/cargar_datos.html -->
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -7,57 +7,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ver Datos CO2</title>
-    <link href="{% static 'css/dist/styles.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}">
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h1 class="text-2xl font-bold text-primary mb-6 text-center">Seleccionar País y Año para Ver Datos de CO2</h1>
+        <h1 class="text-xl font-bold text-primary mt-6 text-center">Seleccionar País y Año para Ver Datos de CO2</h1>
         
-        <!-- Formulario para seleccionar el país y el año -->
-        <form method="POST" action="{% url 'index' %}" class="space-y-4">
+        <form method="POST" action="{% url 'index' %}" >
             {% csrf_token %}
             
-        </form>
-            
-          
-            <div>
-                <label for="pais" class="block text-sm font-medium text-gray-700 mb-2">
-                    Selecciona un País
-                </label>
-                <select id="pais" name="pais" class="block w-full text-sm text-gray-500 p-2 rounded-md">
-                    <option value="">Seleccione un País</option>
-                    {% for pais in paises %}
-                        <option value="{{ pais }}">{{ pais }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            
-            <div class="mt-4">
-                <label for="año" class="block text-sm font-medium text-gray-700 mb-2">
-                    Selecciona un Año
-                </label>
-                <select id="año" name="año" class="block w-full text-sm text-gray-500 p-2 rounded-md">
-                    <option value="">Seleccione un Año</option>
-                    {% for año in años %}
-                        <option value="{{ año }}">{{ año }}</option>
-                    {% endfor %}
-                </select>
+            <div >
+                <div>
+                    <label for="pais" class="block text-sm font-bold text-gray-700 mb-2">
+                        Selecciona un País
+                    </label>
+                    <select id="pais" name="pais" class="block w-10 text-sm text-gray-500 p-2 rounded-md border border-gray-300 focus:ring-primary focus:border-primary">
+                        <option value="">Seleccione un País</option>
+                        {% for pais in paises %}
+                            <option value="{{ pais }}">{{ pais }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="mt-4">
+                    <label for="año" class="block text-sm font-medium text-gray-700 mb-2">
+                        Selecciona un Año
+                    </label>
+                    <select id="año" name="año" class="block w-10 text-sm text-gray-500 p-2 rounded-md border border-gray-300 focus:ring-primary focus:border-primary">
+                        <option value="">Seleccione un Año</option>
+                        {% for año in años %}
+                            <option value="{{ año }}">{{ año }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="mt-4">
+                    <label for="metrica" class="block text-sm font-medium text-gray-700 mb-2">
+                        Selecciona tipo de métrica CO2
+                    </label>
+                    <select id="metrica" name="metrica" class="block w-10 text-sm text-gray-500 p-2 rounded-md border border-gray-300 focus:ring-primary focus:border-primary">
+                        <option value="">Seleccione una métrica</option>
+                        <option value="co2_total">CO2 Total</option>
+                        <option value="co2_habitante">CO2 por Habitante</option>
+                        <option value="co2_producto_interno">CO2 por Producto Interno</option>
+                    </select>
+                </div>
             </div>
 
-            
-            <div class="mt-4">
-                <label for="metrica" class="block text-sm font-medium text-gray-700 mb-2">
-                    Selecciona tipo de métrica CO2
-                </label>
-                <select id="metrica" name="metrica" class="block w-full text-sm text-gray-500 p-2 rounded-md">
-                    <option value="">Seleccione una métrica</option>
-                    <option value="co2_total">CO2 Total</option>
-                    <option value="co2_habitante">CO2 por Habitante</option>
-                    <option value="co2_producto_interno">CO2 por Producto Interno</option>
-                </select>
-            </div>
-      
-            <button type="submit" class="w-full bg-secondary text-white py-2 rounded-lg hover:bg-orange-700 transition duration-300">
+            <button type="submit" class="w-10 bg-secondary text-black py-2 rounded-lg hover:bg-teal-900 transition duration-300">
                 Ver Datos
             </button>
         </form>
