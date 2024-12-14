@@ -1,4 +1,6 @@
 # Proyecto - Analisis de datos 
+![imagen](https://github.com/user-attachments/assets/fd846170-751c-4477-91a7-159941935b5d)
+
 #### Samsumg Innovation Campus - 2024
 
 ## Integrantes
