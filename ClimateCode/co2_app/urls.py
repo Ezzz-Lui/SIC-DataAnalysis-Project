@@ -1,12 +1,11 @@
-
 from django.contrib import admin
 from django.urls import path
 from . import views
-from co2_app import views as co2_views
-from django.urls import include
 
-# LUIS CAMBIA LAS VIEWS
+app_name = 'co2_app'
+
 urlpatterns = [
-    path('cargar-datos/',views.cargar_datos_view,name='Cargar_Datos'),
-
+    path('', views.index, name='index'),  # Página principal
+    path('cargar-datos/', views.cargar_datos_view, name='cargar_datos'),  # Vista para cargar datos
+    path('procesar-datos/', views.procesar_datos, name='procesar_datos'),  # Vista para procesar datos
 ]

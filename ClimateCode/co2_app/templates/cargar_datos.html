@@ -6,85 +6,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClimateCode</title>
-    <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}">
+    <title>Ver Datos CO2</title>
+    <link href="{% static 'css/dist/styles.css' %}" rel="stylesheet">
 </head>
-<body class="bg-white text-gray-900">
-    <header class="absolute inset-x-0 top-0 z-50">
-        <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-            <div class="flex lg:flex-1">
-                <a href="#" class="-m-1.5 p-1.5">
-                    <span class="text-sm font-semibold">SIC - Proyecto</span>
-                </a>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold text-primary mb-6 text-center">Seleccionar País y Año para Ver Datos de CO2</h1>
+        
+        <!-- Formulario para seleccionar el país y el año -->
+        <form method="POST" action="{% url 'index' %}" class="space-y-4">
+            {% csrf_token %}
+            
+        </form>
+            
+          
+            <div>
+                <label for="pais" class="block text-sm font-medium text-gray-700 mb-2">
+                    Selecciona un País
+                </label>
+                <select id="pais" name="pais" class="block w-full text-sm text-gray-500 p-2 rounded-md">
+                    <option value="">Seleccione un País</option>
+                    {% for pais in paises %}
+                        <option value="{{ pais }}">{{ pais }}</option>
+                    {% endfor %}
+                </select>
             </div>
-            <div class="flex lg:hidden">
-                <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </button>
+            
+            <div class="mt-4">
+                <label for="año" class="block text-sm font-medium text-gray-700 mb-2">
+                    Selecciona un Año
+                </label>
+                <select id="año" name="año" class="block w-full text-sm text-gray-500 p-2 rounded-md">
+                    <option value="">Seleccione un Año</option>
+                    {% for año in años %}
+                        <option value="{{ año }}">{{ año }}</option>
+                    {% endfor %}
+                </select>
             </div>
-            <div class="hidden lg:flex lg:gap-x-12">
-                <a href="#" class="text-sm font-semibold">Docs</a>
-                <a href="#" class="text-sm font-semibold">GitHub</a>
-                <a href="#" class="text-sm font-semibold">Devs</a>
-                <a href="#" class="text-sm font-semibold">Showcase</a>
-            </div>
-            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="#" class="text-sm font-semibold">Graficos<span aria-hidden="true">&rarr;</span></a>
-            </div>
-        </nav>
-    </header>
 
-    <main class="relative isolate px-6 pt-20 lg:px-8">
-        <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-            <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-teal-900 to-teal-950 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+            
+            <div class="mt-4">
+                <label for="metrica" class="block text-sm font-medium text-gray-700 mb-2">
+                    Selecciona tipo de métrica CO2
+                </label>
+                <select id="metrica" name="metrica" class="block w-full text-sm text-gray-500 p-2 rounded-md">
+                    <option value="">Seleccione una métrica</option>
+                    <option value="co2_total">CO2 Total</option>
+                    <option value="co2_habitante">CO2 por Habitante</option>
+                    <option value="co2_producto_interno">CO2 por Producto Interno</option>
+                </select>
+            </div>
+      
+            <button type="submit" class="w-full bg-secondary text-white py-2 rounded-lg hover:bg-orange-700 transition duration-300">
+                Ver Datos
+            </button>
+        </form>
+
+        <!-- Área para mostrar resultados -->
+        <div id="resultado" class="mt-4 text-center">
+            {% if datos %}
+                <h2 class="text-xl font-bold">Datos de CO2 para {{ datos.pais }} en el año {{ datos.año }}</h2>
+                <p>CO2 Total Promedio: {{ datos.co2_total }}</p>
+                <p>CO2 por Habitante Promedio: {{ datos.co2_habitante }}</p>
+                <p>CO2 por Producto Interno Promedio: {{ datos.co2_producto_interno }}</p>
+            {% endif %}
         </div>
-
-        <section class="mx-auto max-w-4xl py-32 sm:py-48 lg:py-56">
-            <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div class="p-6 bg-gray-50 rounded-lg shadow-md">
-                    <h2 class="text-xl font-bold">Resumen de Datos</h2>
-                    <ul class="mt-4 text-sm text-gray-600">
-                        <li>- Países: Guatemala, El Salvador, Honduras...</li>
-                        <li>- Variables: CO2, PIB, Per Cápita</li>
-                        <li>- Formato: CSV / Excel</li>
-                    </ul>
-                </div>
-                <div class="p-6 bg-gray-50 rounded-lg shadow-md">
-                    <h2 class="text-xl font-bold">Resultados Esperados</h2>
-                    <ul class="mt-4 text-sm text-gray-600">
-                        <li>- Gráficos interactivos</li>
-                        <li>- Análisis predictivo</li>
-                        <li>- Exportación de datos</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <section>
-            <form method="post" class="mb-6">
-                {% csrf_token %}
-                <div class="flex items-center space-x-2">
-                    <label for="pais" class="text-lg">Selecciona el País:</label>
-                    <select name="pais" id="pais" class="border p-2 rounded-md">
-                        {% for pais in paises %}
-                            <option value="{{ pais }}">{{ pais }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <label for="año" class="text-lg">Selecciona el Año:</label>
-                    <select name="año" id="año" class="border p-2 rounded-md">
-                        <option value="">-- Elige un año --</option>
-                        {% for año in años %}
-                            <option value="{{ año }}" {% if año == año_seleccionado %}selected{% endif %}>{{ año }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <button type="submit" class="bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700">Ver Datos</button>
-            </form>
-        </section>
-    </main>
+    </div>
 </body>
 </html>

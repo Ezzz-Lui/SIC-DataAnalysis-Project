@@ -7,9 +7,12 @@ from django.urls import include
 
 # LUIS CAMBIA LAS VIEWS
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),  
     path('cargar-datos/',views.cargar_datos_view,name='Cargar_Datos'),
     path('',co2_views.index,name='index'),
     path('co2_app/', include('co2_app.urls')),
+    
 
 ]
+
+
