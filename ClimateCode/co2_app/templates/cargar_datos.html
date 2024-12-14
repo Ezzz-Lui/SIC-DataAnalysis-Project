@@ -3,16 +3,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Tailwind Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Datos CO2</title>
     <link href="{% static 'css/dist/styles.css' %}" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-center">
-    <div class="p-10">
-        <h1 class="text-4xl font-bold text-primary">¡Hola con Tailwind CSS!</h1>
-        <button class="mt-5 px-4 py-2 bg-secondary text-white rounded-lg hover:bg-orange-700">
-            Click Me
-        </button>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold text-primary mb-6 text-center">Seleccionar País y Año para Ver Datos de CO2</h1>
+        
+        <!-- Formulario para seleccionar el país y el año -->
+        <form method="POST" action="{% url 'index' %}" class="space-y-4">
+            {% csrf_token %}
+            
+        </form>
+            
+          
+            <div>
+                <label for="pais" class="block text-sm font-medium text-gray-700 mb-2">
+                    Selecciona un País
+                </label>
+                <select id="pais" name="pais" class="block w-full text-sm text-gray-500 p-2 rounded-md">
+                    <option value="">Seleccione un País</option>
+                    {% for pais in paises %}
+                        <option value="{{ pais }}">{{ pais }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="mt-4">
+                <label for="año" class="block text-sm font-medium text-gray-700 mb-2">
+                    Selecciona un Año
+                </label>
+                <select id="año" name="año" class="block w-full text-sm text-gray-500 p-2 rounded-md">
+                    <option value="">Seleccione un Año</option>
+                    {% for año in años %}
+                        <option value="{{ año }}">{{ año }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            
+            <div class="mt-4">
+                <label for="metrica" class="block text-sm font-medium text-gray-700 mb-2">
+                    Selecciona tipo de métrica CO2
+                </label>
+                <select id="metrica" name="metrica" class="block w-full text-sm text-gray-500 p-2 rounded-md">
+                    <option value="">Seleccione una métrica</option>
+                    <option value="co2_total">CO2 Total</option>
+                    <option value="co2_habitante">CO2 por Habitante</option>
+                    <option value="co2_producto_interno">CO2 por Producto Interno</option>
+                </select>
+            </div>
+      
+            <button type="submit" class="w-full bg-secondary text-white py-2 rounded-lg hover:bg-orange-700 transition duration-300">
+                Ver Datos
+            </button>
+        </form>
+
+        <!-- Área para mostrar resultados -->
+        <div id="resultado" class="mt-4 text-center">
+            {% if datos %}
+                <h2 class="text-xl font-bold">Datos de CO2 para {{ datos.pais }} en el año {{ datos.año }}</h2>
+                <p>CO2 Total Promedio: {{ datos.co2_total }}</p>
+                <p>CO2 por Habitante Promedio: {{ datos.co2_habitante }}</p>
+                <p>CO2 por Producto Interno Promedio: {{ datos.co2_producto_interno }}</p>
+            {% endif %}
+        </div>
     </div>
 </body>
 </html>
-
