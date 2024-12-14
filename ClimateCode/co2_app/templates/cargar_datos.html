@@ -21,7 +21,7 @@
                     <label for="pais" class="block text-sm font-bold text-gray-700 mb-2">
                         Selecciona un País
                     </label>
-                    <select id="pais" name="pais" class="block w-10 text-sm text-gray-500 p-2 rounded-md border border-gray-300 focus:ring-primary focus:border-primary">
+                    <select id="pais" name="pais" class="block w-full text-sm text-gray-500 p-2 rounded-md border border-gray-300 focus:ring-primary focus:border-primary">
                         <option value="">Seleccione un País</option>
                         {% for pais in paises %}
                             <option value="{{ pais }}">{{ pais }}</option>
@@ -33,7 +33,7 @@
                     <label for="año" class="block text-sm font-medium text-gray-700 mb-2">
                         Selecciona un Año
                     </label>
-                    <select id="año" name="año" class="block w-10 text-sm text-gray-500 p-2 rounded-md border border-gray-300 focus:ring-primary focus:border-primary">
+                    <select id="año" name="año" class="block w-full text-sm text-gray-500 p-2 rounded-md border border-gray-300 focus:ring-primary focus:border-primary">
                         <option value="">Seleccione un Año</option>
                         {% for año in años %}
                             <option value="{{ año }}">{{ año }}</option>
@@ -45,7 +45,7 @@
                     <label for="metrica" class="block text-sm font-medium text-gray-700 mb-2">
                         Selecciona tipo de métrica CO2
                     </label>
-                    <select id="metrica" name="metrica" class="block w-10 text-sm text-gray-500 p-2 rounded-md border border-gray-300 focus:ring-primary focus:border-primary">
+                    <select id="metrica" name="metrica" class="block w-full text-sm text-gray-500 p-2 rounded-md border border-gray-300 focus:ring-primary focus:border-primary">
                         <option value="">Seleccione una métrica</option>
                         <option value="co2_total">CO2 Total</option>
                         <option value="co2_habitante">CO2 por Habitante</option>
@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="w-10 bg-secondary text-black py-2 rounded-lg hover:bg-teal-900 transition duration-300">
+            <button type="submit" class="w-full font-semibold bg-secondary text-black py-2 mt-2 rounded-lg hover:bg-teal-950 hover:text-white transition duration-300">
                 Ver Datos
             </button>
         </form>

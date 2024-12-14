@@ -7,7 +7,7 @@ import os
 def index(request):
     return render(request, 'index.html')  
 
-def index(request):
+def mostrar_datos(request):
     try:
         file_path = os.path.join(os.getcwd(), 'co2_app', 'utils', 'data', 'co2.csv')
         df = pd.read_csv(file_path)
@@ -48,6 +48,7 @@ def procesar_datos(request):
                 'co2_habitante': datos_filtrados['co2_habitante'].values[0],
                 'co2_producto_interno': datos_filtrados['co2_producto_interno'].values[0]
             }
+            print(datos)
             return render(request, 'cargar_datos.html', {'datos': datos})
     
     return render(request, 'cargar_datos.html')    

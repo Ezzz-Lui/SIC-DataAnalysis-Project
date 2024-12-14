@@ -7,6 +7,5 @@ from django.urls import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', co2_views.index, name='index'),
-    path('cargar-datos/', views.cargar_datos_view, name='Cargar_Datos'),
     path('co2_app/', include('co2_app.urls')),
 ]
